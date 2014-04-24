@@ -1,0 +1,39 @@
+{
+  "id" : "2",
+  "date" : "2013-12-03T14:59:32.952+0000",
+  "sla" : {
+    "uri" : "http://......",
+    "description" : "sla of premium video UPDATED"
+  },
+  "involvedParties" : [ {
+    "role" : "SLAProvider",
+    "reference" : "http://...."
+  }, {
+    "role" : "SLAConsumer",
+    "reference" : "http://...."
+  }, {
+    "role" : "SLAAuditor",
+    "reference" : "http://...."
+  }, {
+    "role" : "EndUser",
+    "reference" : "http://...."
+  } ],
+  "violations" : [ {
+    "rule" : {
+      "uri" : "http://......",
+      "description" : "availability"
+    },
+    "unit" : "string",
+    "referenceValue" : "available",
+    "operator" : ".eq",
+    "actualValue" : "available",
+    "tolerance" : "0.0.5",
+    "violationAverage" : "0.1",
+    "comment" : "Availability below agreed level.",
+    "consequence" : "http://.....",
+    "attachement" : {
+      "uri" : "http://....",
+      "description" : "availability statistics for August 2013"
+    }
+  } ]
+}

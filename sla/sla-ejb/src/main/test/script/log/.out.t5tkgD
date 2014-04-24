@@ -1,0 +1,3 @@
+   REQUEST DELETE http://localhost:8080/DSSlaStandalone/api/slaResource/admin/
+
+   RESPONSE

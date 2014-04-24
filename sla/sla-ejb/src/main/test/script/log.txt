@@ -1,0 +1,59 @@
+listening at http://localhost:9000/listener
+
+2014-04-02T13:00:26UTC --- START  --- POST
+{
+  "resource" : {
+    "id" : "3",
+    "name" : "HighSpeedDataSLA",
+    "description" : "SLA for high speed data.",
+    "version" : "0.1",
+    "status" : "OPEN_RUNNING",
+    "validityPeriod" : {
+      "startTime" : 1385716200022,
+      "endTime" : 1385716200022
+    },
+    "template" : {
+      "uri" : "http://sdfk",
+      "name" : "DataSLATemplate",
+      "description" : "basic template for Data SLA"
+    },
+    "involvedParties" : [ {
+      "role" : "SLAProvider",
+      "reference" : "http://...."
+    }, {
+      "role" : "SLAConsumer",
+      "reference" : "http://...."
+    }, {
+      "role" : "SLAAuditor",
+      "reference" : "http://...."
+    }, {
+      "role" : "EndUser",
+      "reference" : "http://...."
+    } ],
+    "state" : "observed",
+    "approved" : "true",
+    "approvalDate" : 1385716200022,
+    "rules" : [ {
+      "id" : "availability",
+      "metric" : "http://...",
+      "unit" : "string",
+      "referenceValue" : "available",
+      "operator" : ".eq",
+      "tolerance" : "0.05",
+      "consequence" : "http://..."
+    }, {
+      "id" : "downstream_GBR",
+      "metric" : "http://...",
+      "unit" : "kbps",
+      "referenceValue" : "1024",
+      "operator" : ".ge",
+      "tolerance" : "0.25",
+      "consequence" : "http://..."
+    } ]
+  },
+  "reason" : "New SLAResource",
+  "date" : 1396443358326,
+  "eventType" : "CreateNotification"
+}
+2014-04-02T13:00:31UTC --- FINITO --- 
+

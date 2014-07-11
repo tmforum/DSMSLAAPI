@@ -1,4 +1,0 @@
-{
-    "callback":"http://localhost:9000/listener",
-    "query": "eventType=CreateNotification,StatusChangedNotification&fields=resource.id,resource.name,resource.status"
-}

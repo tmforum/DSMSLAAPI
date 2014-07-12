@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewEventResourceTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewEventResourceLabel_id}"/>
+                    <h:outputText value="#{eventResourceController.selected.id}" title="#{bundle.ViewEventResourceTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewEventResourceLabel_resource}"/>
+                    <h:outputText value="#{eventResourceController.selected.resource}" title="#{bundle.ViewEventResourceTitle_resource}"/>
+                    <h:outputText value="#{bundle.ViewEventResourceLabel_eventType}"/>
+                    <h:outputText value="#{eventResourceController.selected.eventType}" title="#{bundle.ViewEventResourceTitle_eventType}"/>
+                    <h:outputText value="#{bundle.ViewEventResourceLabel_reason}"/>
+                    <h:outputText value="#{eventResourceController.selected.reason}" title="#{bundle.ViewEventResourceTitle_reason}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{eventResourceController.destroyAndView}" value="#{bundle.ViewEventResourceDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewEventResourceEditLink}"/>
+                <br />
+                <h:commandLink action="#{eventResourceController.prepareCreate}" value="#{bundle.ViewEventResourceCreateLink}" />
+                <br />
+                <h:commandLink action="#{eventResourceController.prepareList}" value="#{bundle.ViewEventResourceShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewEventResourceIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

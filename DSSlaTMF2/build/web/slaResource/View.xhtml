@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ViewSlaResourceTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_id}"/>
+                    <h:outputText value="#{slaResourceController.selected.id}" title="#{bundle.ViewSlaResourceTitle_id}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_name}"/>
+                    <h:outputText value="#{slaResourceController.selected.name}" title="#{bundle.ViewSlaResourceTitle_name}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_description}"/>
+                    <h:outputText value="#{slaResourceController.selected.description}" title="#{bundle.ViewSlaResourceTitle_description}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_version}"/>
+                    <h:outputText value="#{slaResourceController.selected.version}" title="#{bundle.ViewSlaResourceTitle_version}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_status}"/>
+                    <h:outputText value="#{slaResourceController.selected.status}" title="#{bundle.ViewSlaResourceTitle_status}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_validityPeriod}"/>
+                    <h:outputText value="#{slaResourceController.selected.validityPeriod}" title="#{bundle.ViewSlaResourceTitle_validityPeriod}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_template}"/>
+                    <h:outputText value="#{slaResourceController.selected.template}" title="#{bundle.ViewSlaResourceTitle_template}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_involvedParties}"/>
+                    <h:outputText value="#{slaResourceController.selected.involvedParties}" title="#{bundle.ViewSlaResourceTitle_involvedParties}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_state}"/>
+                    <h:outputText value="#{slaResourceController.selected.state}" title="#{bundle.ViewSlaResourceTitle_state}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_approved}"/>
+                    <h:outputText value="#{slaResourceController.selected.approved}" title="#{bundle.ViewSlaResourceTitle_approved}"/>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_approvalDate}"/>
+                    <h:outputText value="#{slaResourceController.selected.approvalDate}" title="#{bundle.ViewSlaResourceTitle_approvalDate}">
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:outputText>
+                    <h:outputText value="#{bundle.ViewSlaResourceLabel_rules}"/>
+                    <h:outputText value="#{slaResourceController.selected.rules}" title="#{bundle.ViewSlaResourceTitle_rules}"/>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{slaResourceController.destroyAndView}" value="#{bundle.ViewSlaResourceDestroyLink}"/>
+                <br />
+                <br />
+                <h:link outcome="Edit" value="#{bundle.ViewSlaResourceEditLink}"/>
+                <br />
+                <h:commandLink action="#{slaResourceController.prepareCreate}" value="#{bundle.ViewSlaResourceCreateLink}" />
+                <br />
+                <h:commandLink action="#{slaResourceController.prepareList}" value="#{bundle.ViewSlaResourceShowAllLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ViewSlaResourceIndexLink}"/>
+
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

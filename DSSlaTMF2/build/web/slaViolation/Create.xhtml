@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateSlaViolationTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateSlaViolationLabel_id}" for="id" />
+                    <h:inputText id="id" value="#{slaViolationController.selected.id}" title="#{bundle.CreateSlaViolationTitle_id}" />
+                    <h:outputLabel value="#{bundle.CreateSlaViolationLabel_date}" for="date" />
+                    <h:inputText id="date" value="#{slaViolationController.selected.date}" title="#{bundle.CreateSlaViolationTitle_date}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateSlaViolationLabel_sla}" for="sla" />
+                    <h:inputText id="sla" value="#{slaViolationController.selected.sla}" title="#{bundle.CreateSlaViolationTitle_sla}" />
+                    <h:outputLabel value="#{bundle.CreateSlaViolationLabel_involvedParties}" for="involvedParties" />
+                    <h:inputText id="involvedParties" value="#{slaViolationController.selected.involvedParties}" title="#{bundle.CreateSlaViolationTitle_involvedParties}" />
+                    <h:outputLabel value="#{bundle.CreateSlaViolationLabel_violations}" for="violations" />
+                    <h:inputText id="violations" value="#{slaViolationController.selected.violations}" title="#{bundle.CreateSlaViolationTitle_violations}" />
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{slaViolationController.create}" value="#{bundle.CreateSlaViolationSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{slaViolationController.prepareList}" value="#{bundle.CreateSlaViolationShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateSlaViolationIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

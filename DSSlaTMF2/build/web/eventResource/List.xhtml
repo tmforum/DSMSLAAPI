@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.ListEventResourceTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:form styleClass="jsfcrud_list_form">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText escape="false" value="#{bundle.ListEventResourceEmpty}" rendered="#{eventResourceController.items.rowCount == 0}"/>
+                <h:panelGroup rendered="#{eventResourceController.items.rowCount > 0}">
+                    <h:outputText value="#{eventResourceController.pagination.pageFirstItem + 1}..#{eventResourceController.pagination.pageLastItem + 1}/#{eventResourceController.pagination.itemsCount}"/>&nbsp;
+                    <h:commandLink action="#{eventResourceController.previous}" value="#{bundle.Previous} #{eventResourceController.pagination.pageSize}" rendered="#{eventResourceController.pagination.hasPreviousPage}"/>&nbsp;
+                    <h:commandLink action="#{eventResourceController.next}" value="#{bundle.Next} #{eventResourceController.pagination.pageSize}" rendered="#{eventResourceController.pagination.hasNextPage}"/>&nbsp;
+                    <h:dataTable value="#{eventResourceController.items}" var="item" border="0" cellpadding="2" cellspacing="0" rowClasses="jsfcrud_odd_row,jsfcrud_even_row" rules="all" style="border:solid 1px">
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventResourceTitle_id}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.id}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventResourceTitle_resource}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.resource}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventResourceTitle_eventType}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.eventType}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="#{bundle.ListEventResourceTitle_reason}"/>
+                            </f:facet>
+                            <h:outputText value="#{item.reason}"/>
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">
+                                <h:outputText value="&nbsp;"/>
+                            </f:facet>
+                            <h:commandLink action="#{eventResourceController.prepareView}" value="#{bundle.ListEventResourceViewLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{eventResourceController.prepareEdit}" value="#{bundle.ListEventResourceEditLink}"/>
+                            <h:outputText value=" "/>
+                            <h:commandLink action="#{eventResourceController.destroy}" value="#{bundle.ListEventResourceDestroyLink}"/>
+                        </h:column>
+                    </h:dataTable>
+                </h:panelGroup>
+                <br />
+                <h:commandLink action="#{eventResourceController.prepareCreate}" value="#{bundle.ListEventResourceCreateLink}"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.ListEventResourceIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

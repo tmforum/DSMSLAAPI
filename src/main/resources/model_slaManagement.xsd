@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema targetNamespace='http://orange.com/api/sla/tmf/v2/model/business' attributeFormDefault='unqualified' elementFormDefault='qualified' xmlns='http://orange.com/api/sla/tmf/v2/model/business' xmlns:xsd='http://www.w3.org/2001/XMLSchema'>
+  <xsd:annotation id='sidTag'>
+    <xsd:appinfo></xsd:appinfo>
+  </xsd:annotation>
+  <xsd:element name='Sla' type='Sla' />
+  <xsd:element name='RelatedParty' type='RelatedParty' />
+  <xsd:element name='Rule' type='Rule' />
+  <xsd:element name='Template' type='Template' />
+  <xsd:element name='ValidFor' type='ValidFor' />
+  <xsd:element name='SlaViolation' type='SlaViolation' />
+  <xsd:element name='Violation' type='Violation' />
+  <xsd:element name='SlaRef' type='SlaRef' />
+  <xsd:element name='Attachment' type='Attachment' />
+  <xsd:element name='RuleRef' type='RuleRef' />
+  <xsd:complexType name='Sla'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='id' type='xsd:long' minOccurs='0' />
+      <xsd:element name='href' type='xsd:string' minOccurs='0' />
+      <xsd:element name='name' type='xsd:string' minOccurs='0' />
+      <xsd:element name='description' type='xsd:string' minOccurs='0' />
+      <xsd:element name='version' type='xsd:string' minOccurs='0' />
+      <xsd:element name='validFor' type='ValidFor' minOccurs='0' />
+      <xsd:element name='relatedParty' type='RelatedParty' minOccurs='0' maxOccurs='unbounded' />
+      <xsd:element name='rule' type='Rule' minOccurs='0' maxOccurs='unbounded' />
+      <xsd:element name='template' type='Template' minOccurs='0' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='RelatedParty'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='href' type='xsd:string' minOccurs='0' />
+      <xsd:element name='role' type='xsd:string' minOccurs='0' />
+      <xsd:element name='name' type='xsd:string' minOccurs='0' />
+      <xsd:element name='validFor' type='ValidFor' minOccurs='0' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Rule'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='id' type='xsd:string' minOccurs='0' />
+      <xsd:element name='metric' type='xsd:string' minOccurs='0' />
+      <xsd:element name='unit' type='xsd:string' minOccurs='0' />
+      <xsd:element name='referenceValue' type='xsd:string' minOccurs='0' />
+      <xsd:element name='operator' type='xsd:string' minOccurs='0' />
+      <xsd:element name='tolerance' type='xsd:string' minOccurs='0' />
+      <xsd:element name='consequence' type='xsd:string' minOccurs='0' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Template'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='href' type='xsd:string' minOccurs='0' />
+      <xsd:element name='name' type='xsd:string' minOccurs='0' />
+      <xsd:element name='description' type='xsd:string' minOccurs='0' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='ValidFor'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='startDateTime' type='xsd:dateTime' minOccurs='0' />
+      <xsd:element name='endDateTime' type='xsd:dateTime' minOccurs='0' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SlaViolation'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='id' type='xsd:long' minOccurs='0' />
+      <xsd:element name='href' type='xsd:string' minOccurs='0' />
+      <xsd:element name='date' type='xsd:dateTime' minOccurs='0' />
+      <xsd:element name='sla' type='SlaRef' minOccurs='0' />
+      <xsd:element name='violation' type='Violation' minOccurs='0' />
+      <xsd:element name='relatedParty' type='RelatedParty' minOccurs='0' maxOccurs='unbounded' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Violation'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='unit' type='xsd:string' minOccurs='0' />
+      <xsd:element name='referenceValue' type='xsd:string' minOccurs='0' />
+      <xsd:element name='operator' type='xsd:string' minOccurs='0' />
+      <xsd:element name='actualValue' type='xsd:string' minOccurs='0' />
+      <xsd:element name='tolerance' type='xsd:float' minOccurs='0' />
+      <xsd:element name='violationAverage' type='xsd:float' minOccurs='0' />
+      <xsd:element name='comment' type='xsd:string' minOccurs='0' />
+      <xsd:element name='consequence' type='xsd:string' minOccurs='0' />
+      <xsd:element name='attachment' type='Attachment' minOccurs='0' />
+      <xsd:element name='rule' type='RuleRef' minOccurs='0' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='SlaRef'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='href' type='xsd:string' minOccurs='0' />
+      <xsd:element name='description' type='xsd:string' minOccurs='0' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='Attachment'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='href' type='xsd:string' minOccurs='0' />
+      <xsd:element name='description' type='xsd:string' minOccurs='0' />
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name='RuleRef'>
+    <xsd:sequence minOccurs='1' maxOccurs='1'>
+      <xsd:element name='href' type='xsd:string' minOccurs='0' />
+      <xsd:element name='description' type='xsd:string' minOccurs='0' />
+    </xsd:sequence>
+  </xsd:complexType>
+</xsd:schema>

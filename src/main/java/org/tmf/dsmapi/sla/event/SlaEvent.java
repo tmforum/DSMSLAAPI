@@ -16,6 +16,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import static org.codehaus.jackson.annotate.JsonAutoDetect.Visibility.ANY;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.annotate.JsonPropertyOrder;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.tmf.dsmapi.commons.utils.CustomJsonDateSerializer;
@@ -30,7 +34,7 @@ public class SlaEvent implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-//    @JsonIgnore
+@JsonIgnore
     private String id;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -40,7 +44,8 @@ public class SlaEvent implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private SlaEventTypeEnum eventType;
 
-    private Sla event; //check for object
+     @JsonIgnore
+    private Sla resource; //check for object
 
     public String getId() {
         return id;
@@ -65,18 +70,43 @@ public class SlaEvent implements Serializable {
     public void setEventType(SlaEventTypeEnum eventType) {
         this.eventType = eventType;
     }
-
-    public Sla getEvent() {
-        return event;
+    
+    @JsonIgnore
+    public Sla getResource() {
+        
+        
+        return resource;
     }
 
-    public void setEvent(Sla event) {
-        this.event = event;
+    public void setResource(Sla resource) {
+        this.resource = resource;
     }
+
+
+     
+    @JsonAutoDetect(fieldVisibility = ANY)
+    class EventBody {
+        private Sla sla;
+        public Sla getSla() {
+            return sla;
+        }
+        public EventBody(Sla sla) { 
+        this.sla = sla;
+    }
+    
+       
+    }
+   @JsonProperty("event")
+   public EventBody getEvent() {
+       
+       return new EventBody(getResource() );
+   }
 
     @Override
     public String toString() {
-        return "SlaEvent{" + "id=" + id + ", eventTime=" + eventTime + ", eventType=" + eventType + ", event=" + event + '}';
+        return "SlaEvent{" + "id=" + id + ", eventTime=" + eventTime + ", eventType=" + eventType + ", resource=" + resource + '}';
     }
+
+   
 
 }

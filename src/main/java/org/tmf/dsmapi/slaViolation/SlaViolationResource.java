@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
@@ -34,6 +36,7 @@ import org.tmf.dsmapi.commons.jaxrs.PATCH;
 import org.tmf.dsmapi.commons.utils.BeanUtils;
 import org.tmf.dsmapi.commons.utils.Jackson;
 import org.tmf.dsmapi.commons.utils.URIParser;
+import org.tmf.dsmapi.sla.SlaResource;
 import org.tmf.dsmapi.sla.model.SlaViolation;
 import org.tmf.dsmapi.slaViolation.event.SlaViolationEventPublisherLocal;
 import org.tmf.dsmapi.slaViolation.event.SlaViolationEvent;
@@ -62,8 +65,15 @@ public class SlaViolationResource {
     public Response create(SlaViolation entity) throws BadUsageException {
         slaFacade.create(entity);
         publisher.createNotification(entity, new Date());
+        
+        SlaViolation entityCreated = null;
+        try {
+           entityCreated  =   slaFacade.find(entity.getId());
+        } catch (UnknownResourceException ex) {
+            Logger.getLogger(SlaResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // 201
-        Response response = Response.status(Response.Status.CREATED).entity(entity).build();
+        Response response = Response.status(Response.Status.CREATED).entity(entityCreated).build();
         return response;
     }
 
@@ -193,7 +203,7 @@ public class SlaViolationResource {
             // remove event(s) binding to the resource
             List<SlaViolationEvent> events = eventFacade.findAll();
             for (SlaViolationEvent event : events) {
-                if (event.getEvent().getId().equals(id)) {
+                if (event.getResource().getId().equals(id)) {
                     eventFacade.remove(event.getId());
                 }
             }

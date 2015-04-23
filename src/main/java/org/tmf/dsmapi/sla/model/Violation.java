@@ -25,6 +25,7 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlType;
+import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 
 
@@ -88,7 +89,8 @@ public class Violation
     protected String consequence;
     protected Attachment attachment;
     protected RuleRef rule;
-    @XmlAttribute(name = "Hjid")
+   
+    @JsonIgnore
     protected Long hjid;
 
     /**
@@ -366,7 +368,7 @@ public class Violation
     @Id
     @Column(name = "HJID")
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @org.codehaus.jackson.annotate.JsonIgnore
+  @JsonIgnore
     public Long getHjid() {
         return hjid;
     }

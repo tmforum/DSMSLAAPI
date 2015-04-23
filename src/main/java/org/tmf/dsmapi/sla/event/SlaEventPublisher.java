@@ -58,7 +58,7 @@ public class SlaEventPublisher implements SlaEventPublisherLocal {
         SlaEvent event = new SlaEvent();
         event.setEventTime(date);
         event.setEventType(SlaEventTypeEnum.SlaCreationNotification);
-        event.setEvent(bean);
+        event.setResource(bean);
         publish(event);
 
     }
@@ -68,7 +68,7 @@ public class SlaEventPublisher implements SlaEventPublisherLocal {
         SlaEvent event = new SlaEvent();
         event.setEventTime(date);
         event.setEventType(SlaEventTypeEnum.SlaDeletionNotification);
-        event.setEvent(bean);
+        event.setResource(bean);
         publish(event);
     }
 	
@@ -77,7 +77,7 @@ public class SlaEventPublisher implements SlaEventPublisherLocal {
         SlaEvent event = new SlaEvent();
         event.setEventTime(date);
         event.setEventType(SlaEventTypeEnum.SlaUpdateNotification);
-        event.setEvent(bean);
+        event.setResource(bean);
         publish(event);
     }
 
@@ -86,7 +86,7 @@ public class SlaEventPublisher implements SlaEventPublisherLocal {
         SlaEvent event = new SlaEvent();
         event.setEventTime(date);
         event.setEventType(SlaEventTypeEnum.SlaValueChangeNotification);
-        event.setEvent(bean);
+        event.setResource(bean);
         publish(event);
     }
 }

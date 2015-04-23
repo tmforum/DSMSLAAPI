@@ -151,7 +151,7 @@ public class SlaViolationAdminResource {
             // remove event(s) binding to the resource
             List<SlaViolationEvent> events = eventFacade.findAll();
             for (SlaViolationEvent event : events) {
-                if (event.getEvent().getId().equals(id)) {
+                if (event.getResource().getId().equals(id)) {
                     eventFacade.remove(event.getId());
                 }
             }
@@ -203,7 +203,7 @@ public class SlaViolationAdminResource {
         int previousRows = eventFacade.count();
         List<SlaViolationEvent> events = eventFacade.findAll();
         for (SlaViolationEvent event : events) {
-            if (event.getEvent().getId().equals(id)) {
+            if (event.getResource().getId().equals(id)) {
                 eventFacade.remove(event.getId());
 
             }

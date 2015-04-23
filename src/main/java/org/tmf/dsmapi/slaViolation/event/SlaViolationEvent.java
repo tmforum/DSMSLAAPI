@@ -16,6 +16,10 @@ import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.xml.bind.annotation.XmlRootElement;
+import org.codehaus.jackson.annotate.JsonAutoDetect;
+import static org.codehaus.jackson.annotate.JsonAutoDetect.Visibility.ANY;
+import org.codehaus.jackson.annotate.JsonIgnore;
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.codehaus.jackson.annotate.JsonPropertyOrder;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
 import org.tmf.dsmapi.commons.utils.CustomJsonDateSerializer;
@@ -30,7 +34,7 @@ public class SlaViolationEvent implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-//    @JsonIgnore
+    @JsonIgnore
     private String id;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -39,9 +43,9 @@ public class SlaViolationEvent implements Serializable {
 
     @Enumerated(value = EnumType.STRING)
     private SlaViolationEventTypeEnum eventType;
-
-    private SlaViolation event; //check for object
-
+ @JsonIgnore
+    private SlaViolation resource; //check for object
+@JsonIgnore
     public String getId() {
         return id;
     }
@@ -66,17 +70,41 @@ public class SlaViolationEvent implements Serializable {
         this.eventType = eventType;
     }
 
-    public SlaViolation getEvent() {
-        return event;
+   @JsonAutoDetect(fieldVisibility = ANY)
+    class EventBody {
+        private SlaViolation slaViolation;
+        public SlaViolation getSlaViolation() {
+            return slaViolation;
+        }
+        public EventBody(SlaViolation slaViolation) { 
+        this.slaViolation = slaViolation;
+    }
+    
+       
+    }
+   @JsonProperty("event")
+   public EventBody getEvent() {
+       
+       return new EventBody(getResource() );
+   }
+   
+   @JsonIgnore
+    public SlaViolation getResource() {
+        
+        
+        return resource;
     }
 
-    public void setEvent(SlaViolation event) {
-        this.event = event;
+    public void setResource(SlaViolation resource) {
+        this.resource = resource;
     }
+
 
     @Override
     public String toString() {
-        return "SlaViolationEvent{" + "id=" + id + ", eventTime=" + eventTime + ", eventType=" + eventType + ", event=" + event + '}';
+        return "SlaViolationEvent{" + "id=" + id + ", eventTime=" + eventTime + ", eventType=" + eventType + ", resource=" + resource + '}';
     }
 
+
+   
 }

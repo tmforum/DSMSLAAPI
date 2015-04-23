@@ -151,7 +151,7 @@ public class SlaAdminResource {
             // remove event(s) binding to the resource
             List<SlaEvent> events = eventFacade.findAll();
             for (SlaEvent event : events) {
-                if (event.getEvent().getId().equals(id)) {
+                if (event.getResource().getId().equals(id)) {
                     eventFacade.remove(event.getId());
                 }
             }
@@ -203,7 +203,7 @@ public class SlaAdminResource {
         int previousRows = eventFacade.count();
         List<SlaEvent> events = eventFacade.findAll();
         for (SlaEvent event : events) {
-            if (event.getEvent().getId().equals(id)) {
+            if (event.getResource().getId().equals(id)) {
                 eventFacade.remove(event.getId());
 
             }

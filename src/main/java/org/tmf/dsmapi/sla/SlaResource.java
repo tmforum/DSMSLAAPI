@@ -11,6 +11,8 @@ import java.util.Date;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ws.rs.Consumes;
@@ -62,8 +64,14 @@ public class SlaResource {
     public Response create(Sla entity) throws BadUsageException {
         slaFacade.create(entity);
         publisher.createNotification(entity, new Date());
+        Sla entityCreated = null;
+        try {
+           entityCreated  =   slaFacade.find(entity.getId());
+        } catch (UnknownResourceException ex) {
+            Logger.getLogger(SlaResource.class.getName()).log(Level.SEVERE, null, ex);
+        }
         // 201
-        Response response = Response.status(Response.Status.CREATED).entity(entity).build();
+        Response response = Response.status(Response.Status.CREATED).entity(entityCreated).build();
         return response;
     }
 
@@ -193,7 +201,7 @@ public class SlaResource {
             // remove event(s) binding to the resource
             List<SlaEvent> events = eventFacade.findAll();
             for (SlaEvent event : events) {
-                if (event.getEvent().getId().equals(id)) {
+                if (event.getResource().getId().equals(id)) {
                     eventFacade.remove(event.getId());
                 }
             }

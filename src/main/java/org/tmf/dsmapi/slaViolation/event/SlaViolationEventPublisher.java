@@ -58,7 +58,7 @@ public class SlaViolationEventPublisher implements SlaViolationEventPublisherLoc
         SlaViolationEvent event = new SlaViolationEvent();
         event.setEventTime(date);
         event.setEventType(SlaViolationEventTypeEnum.SlaViolationCreationNotification);
-        event.setEvent(bean);
+        event.setResource(bean);
         publish(event);
 
     }
@@ -68,7 +68,7 @@ public class SlaViolationEventPublisher implements SlaViolationEventPublisherLoc
         SlaViolationEvent event = new SlaViolationEvent();
         event.setEventTime(date);
         event.setEventType(SlaViolationEventTypeEnum.SlaViolationDeletionNotification);
-        event.setEvent(bean);
+        event.setResource(bean);
         publish(event);
     }
 	
@@ -77,7 +77,7 @@ public class SlaViolationEventPublisher implements SlaViolationEventPublisherLoc
         SlaViolationEvent event = new SlaViolationEvent();
         event.setEventTime(date);
         event.setEventType(SlaViolationEventTypeEnum.SlaViolationUpdateNotification);
-        event.setEvent(bean);
+        event.setResource(bean);
         publish(event);
     }
 
@@ -86,7 +86,7 @@ public class SlaViolationEventPublisher implements SlaViolationEventPublisherLoc
         SlaViolationEvent event = new SlaViolationEvent();
         event.setEventTime(date);
         event.setEventType(SlaViolationEventTypeEnum.SlaViolationValueChangeNotification);
-        event.setEvent(bean);
+        event.setResource(bean);
         publish(event);
     }
 }

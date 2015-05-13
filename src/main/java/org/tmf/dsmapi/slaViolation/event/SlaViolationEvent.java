@@ -27,14 +27,14 @@ import org.tmf.dsmapi.sla.model.SlaViolation;
 
 @XmlRootElement
 @Entity
-@Table(name="Event_SlaViolation")
+@Table(name = "Event_SlaViolation")
 @JsonPropertyOrder(value = {"id", "eventTime", "eventType", "event"})
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class SlaViolationEvent implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @JsonIgnore
+    @JsonProperty("eventId")
     private String id;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -43,9 +43,10 @@ public class SlaViolationEvent implements Serializable {
 
     @Enumerated(value = EnumType.STRING)
     private SlaViolationEventTypeEnum eventType;
- @JsonIgnore
+    @JsonIgnore
     private SlaViolation resource; //check for object
-@JsonIgnore
+
+    @JsonProperty("eventId")
     public String getId() {
         return id;
     }
@@ -70,28 +71,30 @@ public class SlaViolationEvent implements Serializable {
         this.eventType = eventType;
     }
 
-   @JsonAutoDetect(fieldVisibility = ANY)
+    @JsonAutoDetect(fieldVisibility = ANY)
     class EventBody {
+
         private SlaViolation slaViolation;
+
         public SlaViolation getSlaViolation() {
             return slaViolation;
         }
-        public EventBody(SlaViolation slaViolation) { 
-        this.slaViolation = slaViolation;
+
+        public EventBody(SlaViolation slaViolation) {
+            this.slaViolation = slaViolation;
+        }
+
     }
-    
-       
+
+    @JsonProperty("event")
+    public EventBody getEvent() {
+
+        return new EventBody(getResource());
     }
-   @JsonProperty("event")
-   public EventBody getEvent() {
-       
-       return new EventBody(getResource() );
-   }
-   
-   @JsonIgnore
+
+    @JsonIgnore
     public SlaViolation getResource() {
-        
-        
+
         return resource;
     }
 
@@ -99,12 +102,9 @@ public class SlaViolationEvent implements Serializable {
         this.resource = resource;
     }
 
-
     @Override
     public String toString() {
         return "SlaViolationEvent{" + "id=" + id + ", eventTime=" + eventTime + ", eventType=" + eventType + ", resource=" + resource + '}';
     }
 
-
-   
 }

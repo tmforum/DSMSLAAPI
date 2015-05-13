@@ -37,14 +37,22 @@ public class SlaViolationFacade extends AbstractFacade<SlaViolation> {
         return em;
     }
 
-    @Override
-    public void create(SlaViolation entity) throws BadUsageException {
-        if (entity.getId() != null) {
+    public void checkCreation(SlaViolation newSlaViolation) throws BadUsageException {
+
+        if (newSlaViolation.getId() != null) {
             throw new BadUsageException(ExceptionType.BAD_USAGE_GENERIC, "While creating SlaViolation, id must be null");
         }
 
-        super.create(entity);
     }
+    
+//    @Override
+//    public void create(SlaViolation entity) throws BadUsageException {
+//        if (entity.getId() != null) {
+//            throw new BadUsageException(ExceptionType.BAD_USAGE_GENERIC, "While creating SlaViolation, id must be null");
+//        }
+//
+//        super.create(entity);
+//    }
 
     public SlaViolation updateAttributs(long id, SlaViolation partialSlaViolation) throws UnknownResourceException, BadUsageException {
         SlaViolation currentSlaViolation = this.find(id);
@@ -59,7 +67,7 @@ public class SlaViolationFacade extends AbstractFacade<SlaViolation> {
 
         partialSlaViolation.setId(id);
         if (BeanUtils.patch(currentSlaViolation, partialSlaViolation, node)) {
-            publisher.valueChangedNotification(currentSlaViolation, new Date());
+//            publisher.valueChangedNotification(currentSlaViolation, new Date());
         }
 
         return currentSlaViolation;

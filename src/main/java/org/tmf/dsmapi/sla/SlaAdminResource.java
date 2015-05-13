@@ -62,7 +62,7 @@ public class SlaAdminResource {
         try {
             affectedRows = slaFacade.create(entities);
             for (Sla entitie : entities) {
-                publisher.createNotification(entitie, new Date());
+//                publisher.createNotification(entitie, new Date());
             }
         } catch (BadUsageException e) {
             return Response.status(Response.Status.BAD_REQUEST.getStatusCode()).build();
@@ -88,7 +88,7 @@ public class SlaAdminResource {
         if (sla != null) {
             entity.setId(id);
             slaFacade.edit(entity);
-            publisher.valueChangedNotification(entity, new Date());
+//            publisher.valueChangedNotification(entity, new Date());
             // 201 OK + location
             response = Response.status(Response.Status.CREATED).entity(entity).build();
 
@@ -141,7 +141,7 @@ public class SlaAdminResource {
             Sla entity = slaFacade.find(id);
 
             // Event deletion
-            publisher.deletionNotification(entity, new Date());
+//            publisher.deleteNotification(entity, new Date());
             try {
                 //Pause for 4 seconds to finish notification
                 Thread.sleep(4000);

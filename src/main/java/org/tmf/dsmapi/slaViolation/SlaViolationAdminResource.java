@@ -88,7 +88,7 @@ public class SlaViolationAdminResource {
         if (sla != null) {
             entity.setId(id);
             slaFacade.edit(entity);
-            publisher.valueChangedNotification(entity, new Date());
+//            publisher.valueChangedNotification(entity, new Date());
             // 201 OK + location
             response = Response.status(Response.Status.CREATED).entity(entity).build();
 
@@ -141,7 +141,7 @@ public class SlaViolationAdminResource {
             SlaViolation entity = slaFacade.find(id);
 
             // Event deletion
-            publisher.deletionNotification(entity, new Date());
+//            publisher.deleteNotification(entity, new Date());
             try {
                 //Pause for 4 seconds to finish notification
                 Thread.sleep(4000);

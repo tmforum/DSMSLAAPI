@@ -27,14 +27,14 @@ import org.tmf.dsmapi.sla.model.Sla;
 
 @XmlRootElement
 @Entity
-@Table(name="Event_Sla")
+@Table(name = "Event_Sla")
 @JsonPropertyOrder(value = {"id", "eventTime", "eventType", "event"})
 @JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
 public class SlaEvent implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-@JsonIgnore
+    @JsonProperty("eventId")
     private String id;
 
     @Temporal(TemporalType.TIMESTAMP)
@@ -44,9 +44,10 @@ public class SlaEvent implements Serializable {
     @Enumerated(value = EnumType.STRING)
     private SlaEventTypeEnum eventType;
 
-     @JsonIgnore
+    @JsonIgnore
     private Sla resource; //check for object
 
+   @JsonProperty("eventId")
     public String getId() {
         return id;
     }
@@ -70,11 +71,10 @@ public class SlaEvent implements Serializable {
     public void setEventType(SlaEventTypeEnum eventType) {
         this.eventType = eventType;
     }
-    
+
     @JsonIgnore
     public Sla getResource() {
-        
-        
+
         return resource;
     }
 
@@ -82,31 +82,30 @@ public class SlaEvent implements Serializable {
         this.resource = resource;
     }
 
-
-     
     @JsonAutoDetect(fieldVisibility = ANY)
     class EventBody {
+
         private Sla sla;
+
         public Sla getSla() {
             return sla;
         }
-        public EventBody(Sla sla) { 
-        this.sla = sla;
+
+        public EventBody(Sla sla) {
+            this.sla = sla;
+        }
+
     }
-    
-       
+
+    @JsonProperty("event")
+    public EventBody getEvent() {
+
+        return new EventBody(getResource());
     }
-   @JsonProperty("event")
-   public EventBody getEvent() {
-       
-       return new EventBody(getResource() );
-   }
 
     @Override
     public String toString() {
         return "SlaEvent{" + "id=" + id + ", eventTime=" + eventTime + ", eventType=" + eventType + ", resource=" + resource + '}';
     }
-
-   
 
 }

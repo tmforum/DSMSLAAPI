@@ -26,7 +26,7 @@ public interface SlaEventPublisherLocal {
      * @param reason the reason of the deletion
      * @param date the deletion date
      */
-    public void deletionNotification(Sla bean, Date date);
+    public void deleteNotification(Sla bean, Date date);
 
     /**
      *

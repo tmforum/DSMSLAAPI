@@ -30,7 +30,7 @@ import javax.xml.bind.annotation.XmlType;
 import javax.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 import org.codehaus.jackson.annotate.JsonIgnore;
 import org.codehaus.jackson.map.annotate.JsonSerialize;
-import org.tmf.dsmapi.commons.utils.CustomDateTimeAdapter;
+import org.tmf.dsmapi.commons.utils.CustomJsonDateSerializer;
 
 
 /**
@@ -68,11 +68,11 @@ public class ValidFor
 
     private final static long serialVersionUID = 11L;
     @XmlElement(type = String.class)
-    @XmlJavaTypeAdapter(CustomDateTimeAdapter.class)
+    @JsonSerialize(using = CustomJsonDateSerializer.class)
     @XmlSchemaType(name = "dateTime")
     protected Date startDateTime;
     @XmlElement(type = String.class)
-    @XmlJavaTypeAdapter(CustomDateTimeAdapter.class)
+    @JsonSerialize(using = CustomJsonDateSerializer.class)
     @XmlSchemaType(name = "dateTime")
     protected Date endDateTime;
     

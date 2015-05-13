@@ -57,17 +57,17 @@ public class SlaViolationEventPublisher implements SlaViolationEventPublisherLoc
     public void createNotification(SlaViolation bean, Date date) {
         SlaViolationEvent event = new SlaViolationEvent();
         event.setEventTime(date);
-        event.setEventType(SlaViolationEventTypeEnum.SlaViolationCreationNotification);
+        event.setEventType(SlaViolationEventTypeEnum.SlaViolationCreateNotification);
         event.setResource(bean);
         publish(event);
 
     }
 
     @Override
-    public void deletionNotification(SlaViolation bean, Date date) {
+    public void deleteNotification(SlaViolation bean, Date date) {
         SlaViolationEvent event = new SlaViolationEvent();
         event.setEventTime(date);
-        event.setEventType(SlaViolationEventTypeEnum.SlaViolationDeletionNotification);
+        event.setEventType(SlaViolationEventTypeEnum.SlaViolationDeleteNotification);
         event.setResource(bean);
         publish(event);
     }

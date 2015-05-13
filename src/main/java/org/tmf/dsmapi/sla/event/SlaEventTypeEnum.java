@@ -6,9 +6,9 @@ package org.tmf.dsmapi.sla.event;
 
 public enum SlaEventTypeEnum {
 
-    SlaCreationNotification("SlaCreationNotification"),
+    SlaCreateNotification("SlaCreateNotification"),
     SlaUpdateNotification("SlaUpdateNotification"),
-    SlaDeletionNotification("SlaDeletionNotification"),
+    SlaDeleteNotification("SlaDeleteNotification"),
     SlaValueChangeNotification("SlaValueChangeNotification");
 
     private String text;

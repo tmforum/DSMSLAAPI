@@ -61,9 +61,12 @@ public class SlaResource {
     @POST
     @Consumes({"application/json"})
     @Produces({"application/json"})
-    public Response create(Sla entity) throws BadUsageException {
+    public Response create(Sla entity, @Context UriInfo info) throws BadUsageException, UnknownResourceException {
+        slaFacade.checkCreation(entity);
         slaFacade.create(entity);
-        publisher.createNotification(entity, new Date());
+        entity.setHref(info.getAbsolutePath()+ "/" + Long.toString(entity.getId()));
+        slaFacade.edit(entity);
+//        publisher.createNotification(entity, new Date());
         Sla entityCreated = null;
         try {
            entityCreated  =   slaFacade.find(entity.getId());
@@ -165,7 +168,7 @@ public class SlaResource {
         if (sla != null) {
             entity.setId(id);
             slaFacade.edit(entity);
-            publisher.valueChangedNotification(entity, new Date());
+//            publisher.valueChangedNotification(entity, new Date());
             // 201 OK + location
             response = Response.status(Response.Status.CREATED).entity(entity).build();
 
@@ -186,12 +189,11 @@ public class SlaResource {
      */
     @DELETE
     @Path("{id}")
-    public Response delete(@PathParam("id") long id) {
-        try {
+    public Response delete(@PathParam("id") long id) throws UnknownResourceException {
             Sla entity = slaFacade.find(id);
 
             // Event deletion
-            publisher.deletionNotification(entity, new Date());
+//            publisher.deleteNotification(entity, new Date());
             try {
                 //Pause for 4 seconds to finish notification
                 Thread.sleep(4000);
@@ -211,10 +213,6 @@ public class SlaResource {
             // 200 
             Response response = Response.ok(entity).build();
             return response;
-        } catch (UnknownResourceException ex) {
-            Response response = Response.status(Response.Status.NOT_FOUND).build();
-            return response;
-        }
     }
 
     @PATCH

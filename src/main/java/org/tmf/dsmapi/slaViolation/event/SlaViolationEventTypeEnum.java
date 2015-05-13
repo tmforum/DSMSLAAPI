@@ -6,9 +6,9 @@ package org.tmf.dsmapi.slaViolation.event;
 
 public enum SlaViolationEventTypeEnum {
 
-    SlaViolationCreationNotification("SlaViolationCreationNotification"),
+    SlaViolationCreateNotification("SlaViolationCreateNotification"),
     SlaViolationUpdateNotification("SlaViolationUpdateNotification"),
-    SlaViolationDeletionNotification("SlaViolationDeletionNotification"),
+    SlaViolationDeleteNotification("SlaViolationDeleteNotification"),
     SlaViolationValueChangeNotification("SlaViolationValueChangeNotification");
 
     private String text;

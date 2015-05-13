@@ -57,17 +57,17 @@ public class SlaEventPublisher implements SlaEventPublisherLocal {
     public void createNotification(Sla bean, Date date) {
         SlaEvent event = new SlaEvent();
         event.setEventTime(date);
-        event.setEventType(SlaEventTypeEnum.SlaCreationNotification);
+        event.setEventType(SlaEventTypeEnum.SlaCreateNotification);
         event.setResource(bean);
         publish(event);
 
     }
 
     @Override
-    public void deletionNotification(Sla bean, Date date) {
+    public void deleteNotification(Sla bean, Date date) {
         SlaEvent event = new SlaEvent();
         event.setEventTime(date);
-        event.setEventType(SlaEventTypeEnum.SlaDeletionNotification);
+        event.setEventType(SlaEventTypeEnum.SlaDeleteNotification);
         event.setResource(bean);
         publish(event);
     }

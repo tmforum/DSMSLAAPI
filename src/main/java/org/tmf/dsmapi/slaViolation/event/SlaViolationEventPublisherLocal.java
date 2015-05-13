@@ -26,7 +26,7 @@ public interface SlaViolationEventPublisherLocal {
      * @param reason the reason of the deletion
      * @param date the deletion date
      */
-    public void deletionNotification(SlaViolation bean, Date date);
+    public void deleteNotification(SlaViolation bean, Date date);
 
     /**
      *

@@ -36,14 +36,22 @@ public class SlaFacade extends AbstractFacade<Sla> {
         return em;
     }
 
-    @Override
-    public void create(Sla entity) throws BadUsageException {
-        if (entity.getId() != null) {
+    public void checkCreation(Sla newSla) throws BadUsageException {
+
+        if (newSla.getId() != null) {
             throw new BadUsageException(ExceptionType.BAD_USAGE_GENERIC, "While creating Sla, id must be null");
         }
 
-        super.create(entity);
+        if (null == newSla.getName()) {
+            throw new BadUsageException(ExceptionType.BAD_USAGE_MANDATORY_FIELDS, "name is mandatory");
+        }
     }
+    
+    
+//    @Override
+//    public void create(Sla entity) throws BadUsageException {
+//        super.create(entity);
+//    }
 
     public Sla updateAttributs(long id, Sla partialSla) throws UnknownResourceException, BadUsageException {
         Sla currentSla = this.find(id);
@@ -58,7 +66,7 @@ public class SlaFacade extends AbstractFacade<Sla> {
 
         partialSla.setId(id);
         if (BeanUtils.patch(currentSla, partialSla, node)) {
-            publisher.valueChangedNotification(currentSla, new Date());
+//            publisher.valueChangedNotification(currentSla, new Date());
         }
 
         return currentSla;

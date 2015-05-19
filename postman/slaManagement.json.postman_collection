@@ -19,9 +19,9 @@
 			],
 			"collection_name": "slaManagement",
 			"collection_id": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
-			"collection_owner": 0,
+			"collection_owner": "41284",
 			"write": true,
-			"owner": 0,
+			"owner": "41284",
 			"collection": "a402e650-a20a-6c01-608f-5d4c88b8efbb"
 		},
 		{
@@ -35,9 +35,9 @@
 			],
 			"collection_name": "slaManagement",
 			"collection_id": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
-			"collection_owner": 0,
+			"collection_owner": "41284",
 			"write": true,
-			"owner": 0,
+			"owner": "41284",
 			"collection": "a402e650-a20a-6c01-608f-5d4c88b8efbb"
 		},
 		{
@@ -51,9 +51,9 @@
 			],
 			"collection_name": "slaManagement",
 			"collection_id": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
-			"collection_owner": 0,
+			"collection_owner": "41284",
 			"write": true,
-			"owner": 0,
+			"owner": "41284",
 			"collection": "a402e650-a20a-6c01-608f-5d4c88b8efbb"
 		},
 		{
@@ -70,9 +70,9 @@
 			],
 			"collection_name": "slaManagement",
 			"collection_id": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
-			"collection_owner": 0,
+			"collection_owner": "41284",
 			"write": true,
-			"owner": 0,
+			"owner": "41284",
 			"collection": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb"
 		},
@@ -90,18 +90,19 @@
 			],
 			"collection_name": "slaManagement",
 			"collection_id": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
-			"collection_owner": 0,
+			"collection_owner": "41284",
 			"write": true,
-			"owner": 0,
+			"owner": "41284",
 			"collection": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb"
 		}
 	],
 	"timestamp": 1426687922863,
 	"synced": false,
-	"owner": 0,
+	"owner": "41284",
+	"sharedWithTeam": false,
 	"subscribed": false,
-	"remoteLink": "",
+	"remoteLink": "https://www.getpostman.com/collections/f93ea2f0518e57f94bf0",
 	"public": false,
 	"write": true,
 	"requests": [
@@ -126,7 +127,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": ""
+			"rawModeData": "",
+			"owner": "41284",
+			"folder": "81a0b21f-3ae3-76ad-02f8-090f98832129"
 		},
 		{
 			"id": "1ea9c1b8-7744-42c7-9fa8-29463a0acf4c",
@@ -145,7 +148,9 @@
 			"description": "delete all events",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "d8f98830-26af-5748-1511-cac70c464910"
 		},
 		{
 			"id": "2066d545-fb2d-e283-6eab-9af339ee2062",
@@ -166,7 +171,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/slaManagement/slaViolation/123444\",\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProvider\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAConsumer\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAAuditor\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLABusinessBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLATechnicalBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"ThirdPartySLAManager\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"EndUser\"\r\n    }\r\n  ],\r\n  \"sla\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/sla/123444\",\r\n    \"description\": \"sla of premium video\"\r\n  },\r\n  \"violation\": {\r\n    \"unit\": \"string\",\r\n    \"referenceValue\": \"available\",\r\n    \"operator\": \".eq\",\r\n    \"actualValue\": \"available\",\r\n    \"tolerance\": \"0.05\",\r\n    \"violationAverage\": \"0.1\",\r\n    \"comment\": \"Availability below agreed level.\",\r\n    \"consequence\": \"http://ww.acme.com/contract/clause/42\",\r\n    \"attachment\": {\r\n      \"href\": \"https://foo.bar/screenshot.123\",\r\n      \"description\": \"availability statistics for August 2013\"\r\n    },\r\n    \"rule\": {\r\n      \"href\": \"http/www.zak.com/slaManagement/sla/123444/rules/availability\",\r\n      \"description\": \"availability\"\r\n    }\r\n  }\r\n}"
+			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/slaManagement/slaViolation/123444\",\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProvider\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAConsumer\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAAuditor\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLABusinessBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLATechnicalBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"ThirdPartySLAManager\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"EndUser\"\r\n    }\r\n  ],\r\n  \"sla\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/sla/123444\",\r\n    \"description\": \"sla of premium video\"\r\n  },\r\n  \"violation\": {\r\n    \"unit\": \"string\",\r\n    \"referenceValue\": \"available\",\r\n    \"operator\": \".eq\",\r\n    \"actualValue\": \"available\",\r\n    \"tolerance\": \"0.05\",\r\n    \"violationAverage\": \"0.1\",\r\n    \"comment\": \"Availability below agreed level.\",\r\n    \"consequence\": \"http://ww.acme.com/contract/clause/42\",\r\n    \"attachment\": {\r\n      \"href\": \"https://foo.bar/screenshot.123\",\r\n      \"description\": \"availability statistics for August 2013\"\r\n    },\r\n    \"rule\": {\r\n      \"href\": \"http/www.zak.com/slaManagement/sla/123444/rules/availability\",\r\n      \"description\": \"availability\"\r\n    }\r\n  }\r\n}",
+			"owner": "41284",
+			"folder": "47852edd-20ae-b0ff-d2bb-e734417580cc"
 		},
 		{
 			"id": "2d085c23-aad1-c9e1-14e1-888b4f7def6f",
@@ -187,7 +194,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": "[\n]\n"
+			"rawModeData": "[\n]\n",
+			"owner": "41284",
+			"folder": "d8f98830-26af-5748-1511-cac70c464910"
 		},
 		{
 			"id": "2d74957c-14a8-9556-7558-07fbc3d3ba2c",
@@ -207,7 +216,9 @@
 			"description": "count all resources",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "d8f98830-26af-5748-1511-cac70c464910"
 		},
 		{
 			"id": "34f3a370-0c33-f1e5-2e2b-aebdad7c50b4",
@@ -230,7 +241,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/SlaManagement/sla/999999\",\r\n  \"name\": \"HighSpeedDataSLA\",\r\n  \"description\": \"SLA for high speed data MODIFIED\",\r\n  \"version\": \"0.1\",\r\n  \"validFor\": {\r\n    \"startDateTime\": \"2015-03-18T00:00:00.0Z\",\r\n    \"endDateTime\": \"2015-03-18T01:00:00.0Z\"\r\n  },\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProvider\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAConsumer\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAAuditor\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLABusinessBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLATechnicalBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"ThirdPartySLAManager\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"EndUser\"\r\n    }\r\n  ],\r\n  \"rule\": [\r\n    {\r\n      \"id\": \"availability\",\r\n      \"metric\": \"http://IEEE99.5/Availability\",\r\n      \"unit\": \"string\",\r\n      \"referenceValue\": \"available\",\r\n      \"operator\": \".eq\",\r\n      \"tolerance\": \"0.05\",\r\n      \"consequence\": \"http://ww.acme.com/contract/clause/42\"\r\n    },\r\n    {\r\n      \"id\": \"downstream_GBR\",\r\n      \"metric\": \"http://IEEE99.5/Data/bitrates/GBR/down\",\r\n      \"unit\": \"kbps\",\r\n      \"referenceValue\": \"1024\",\r\n      \"operator\": \".ge\",\r\n      \"tolerance\": \"0.20\",\r\n      \"consequence\": \"http://ww.acme.com/contract/clause/45\"\r\n    }\r\n  ],\r\n  \"template\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/slaTemplate/42\",\r\n    \"name\": \"DataSLATemplate\",\r\n    \"description\": \"basic template for Data SLA\"\r\n  }\r\n}"
+			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/SlaManagement/sla/999999\",\r\n  \"name\": \"HighSpeedDataSLA\",\r\n  \"description\": \"SLA for high speed data MODIFIED\",\r\n  \"version\": \"0.1\",\r\n  \"validFor\": {\r\n    \"startDateTime\": \"2015-03-18T00:00:00.0Z\",\r\n    \"endDateTime\": \"2015-03-18T01:00:00.0Z\"\r\n  },\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProvider\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAConsumer\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAAuditor\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLABusinessBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLATechnicalBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"ThirdPartySLAManager\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"EndUser\"\r\n    }\r\n  ],\r\n  \"rule\": [\r\n    {\r\n      \"id\": \"availability\",\r\n      \"metric\": \"http://IEEE99.5/Availability\",\r\n      \"unit\": \"string\",\r\n      \"referenceValue\": \"available\",\r\n      \"operator\": \".eq\",\r\n      \"tolerance\": \"0.05\",\r\n      \"consequence\": \"http://ww.acme.com/contract/clause/42\"\r\n    },\r\n    {\r\n      \"id\": \"downstream_GBR\",\r\n      \"metric\": \"http://IEEE99.5/Data/bitrates/GBR/down\",\r\n      \"unit\": \"kbps\",\r\n      \"referenceValue\": \"1024\",\r\n      \"operator\": \".ge\",\r\n      \"tolerance\": \"0.20\",\r\n      \"consequence\": \"http://ww.acme.com/contract/clause/45\"\r\n    }\r\n  ],\r\n  \"template\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/slaTemplate/42\",\r\n    \"name\": \"DataSLATemplate\",\r\n    \"description\": \"basic template for Data SLA\"\r\n  }\r\n}",
+			"owner": "41284",
+			"folder": "81a0b21f-3ae3-76ad-02f8-090f98832129"
 		},
 		{
 			"id": "458ab5a1-8c64-2088-32ad-379f3a60cde2",
@@ -253,7 +266,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/SlaManagement/sla/PATCH\",\r\n  \"description\": \"SLA for high speed data PATCH\",\r\n  \"version\": \"0.1\",\r\n  \"validFor\": {\r\n    \"startDateTime\": \"2015-03-24T00:00:00.0Z\",\r\n    \"endDateTime\": \"2015-03-24T01:00:00.0Z\"\r\n  },\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProviderPATCH\"\r\n    }\r\n  ],\r\n \"template\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/slaTemplate/42\",\r\n    \"name\": \"DataSLATemplatePATCH\",\r\n    \"description\": \"basic template for Data SLA\"\r\n  }\r\n}"
+			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/SlaManagement/sla/PATCH\",\r\n  \"description\": \"SLA for high speed data PATCH\",\r\n  \"version\": \"0.1\",\r\n  \"validFor\": {\r\n    \"startDateTime\": \"2015-03-24T00:00:00.0Z\",\r\n    \"endDateTime\": \"2015-03-24T01:00:00.0Z\"\r\n  },\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProviderPATCH\"\r\n    }\r\n  ],\r\n \"template\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/slaTemplate/42\",\r\n    \"name\": \"DataSLATemplatePATCH\",\r\n    \"description\": \"basic template for Data SLA\"\r\n  }\r\n}",
+			"owner": "41284",
+			"folder": "81a0b21f-3ae3-76ad-02f8-090f98832129"
 		},
 		{
 			"id": "4c32f75c-531a-f7d2-3bbd-52b6e19e65ed",
@@ -273,7 +288,9 @@
 			"description": "get last event",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "1a0f11ee-d472-2231-c6cd-383536830c4f"
 		},
 		{
 			"id": "4c6c22a5-f8d4-1dfc-85dd-0c19a9ccedab",
@@ -294,7 +311,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": "{\n  \"callback\":\"{{slaManagementSubscriberApi}}/event\",\n  \"query\":\"eventType=SlaViolationCreateNotification\"\n}"
+			"rawModeData": "{\n  \"callback\":\"{{slaManagementSubscriberApi}}/event\",\n  \"query\":\"eventType=SlaViolationCreateNotification\"\n}",
+			"owner": "41284",
+			"folder": "a222e050-5b84-878f-1fb3-cd9f0b153f4a"
 		},
 		{
 			"id": "5883e22f-d57c-870c-bb12-0579d602a648",
@@ -315,7 +334,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/SlaManagement/sla/123444\",\r\n  \"name\": \"HighSpeedDataSLA\",\r\n  \"description\": \"SLA for high speed data.\",\r\n  \"version\": \"0.1\",\r\n  \"validFor\": {\r\n    \"startDateTime\": \"2013-04-19T16:42:23.0Z\",\r\n    \"endDateTime\": \"2013-04-21T09:43:54.0Z\"\r\n  },\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProvider\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAConsumer\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAAuditor\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLABusinessBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLATechnicalBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"ThirdPartySLAManager\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"EndUser\"\r\n    }\r\n  ],\r\n  \"rule\": [\r\n    {\r\n      \"id\": \"availability\",\r\n      \"metric\": \"http://IEEE99.5/Availability\",\r\n      \"unit\": \"string\",\r\n      \"referenceValue\": \"available\",\r\n      \"operator\": \".eq\",\r\n      \"tolerance\": \"0.05\",\r\n      \"consequence\": \"http://ww.acme.com/contract/clause/42\"\r\n    },\r\n    {\r\n      \"id\": \"downstream_GBR\",\r\n      \"metric\": \"http://IEEE99.5/Data/bitrates/GBR/down\",\r\n      \"unit\": \"kbps\",\r\n      \"referenceValue\": \"1024\",\r\n      \"operator\": \".ge\",\r\n      \"tolerance\": \"0.20\",\r\n      \"consequence\": \"http://ww.acme.com/contract/clause/45\"\r\n    }\r\n  ],\r\n  \"template\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/slaTemplate/42\",\r\n    \"name\": \"DataSLATemplate\",\r\n    \"description\": \"basic template for Data SLA\"\r\n  }\r\n}"
+			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/SlaManagement/sla/123444\",\r\n  \"name\": \"HighSpeedDataSLA\",\r\n  \"description\": \"SLA for high speed data.\",\r\n  \"version\": \"0.1\",\r\n  \"validFor\": {\r\n    \"startDateTime\": \"2013-04-19T16:42:23.0Z\",\r\n    \"endDateTime\": \"2013-04-21T09:43:54.0Z\"\r\n  },\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProvider\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAConsumer\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAAuditor\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLABusinessBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLATechnicalBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"ThirdPartySLAManager\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"EndUser\"\r\n    }\r\n  ],\r\n  \"rule\": [\r\n    {\r\n      \"id\": \"availability\",\r\n      \"metric\": \"http://IEEE99.5/Availability\",\r\n      \"unit\": \"string\",\r\n      \"referenceValue\": \"available\",\r\n      \"operator\": \".eq\",\r\n      \"tolerance\": \"0.05\",\r\n      \"consequence\": \"http://ww.acme.com/contract/clause/42\"\r\n    },\r\n    {\r\n      \"id\": \"downstream_GBR\",\r\n      \"metric\": \"http://IEEE99.5/Data/bitrates/GBR/down\",\r\n      \"unit\": \"kbps\",\r\n      \"referenceValue\": \"1024\",\r\n      \"operator\": \".ge\",\r\n      \"tolerance\": \"0.20\",\r\n      \"consequence\": \"http://ww.acme.com/contract/clause/45\"\r\n    }\r\n  ],\r\n  \"template\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/slaTemplate/42\",\r\n    \"name\": \"DataSLATemplate\",\r\n    \"description\": \"basic template for Data SLA\"\r\n  }\r\n}",
+			"owner": "41284",
+			"folder": "81a0b21f-3ae3-76ad-02f8-090f98832129"
 		},
 		{
 			"id": "62193f3f-8b39-a13b-9b2c-2ca073e431d5",
@@ -334,7 +355,9 @@
 			"description": "delete all hubs",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "a222e050-5b84-878f-1fb3-cd9f0b153f4a"
 		},
 		{
 			"id": "738cbff5-cf0c-fd11-d42b-97da3ac23bd9",
@@ -356,7 +379,9 @@
 			"description": "select one slaViolation with id",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "47852edd-20ae-b0ff-d2bb-e734417580cc"
 		},
 		{
 			"id": "834906b0-7d4b-4848-7e37-27febc6f3a35",
@@ -379,7 +404,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/slaManagement/slaViolation/99999\",\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProvider\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAConsumer\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAAuditor\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLABusinessBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLATechnicalBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"ThirdPartySLAManager\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"EndUser\"\r\n    }\r\n  ],\r\n  \"sla\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/sla/123444\",\r\n    \"description\": \"sla of premium video\"\r\n  },\r\n  \"violation\": {\r\n    \"unit\": \"string\",\r\n    \"referenceValue\": \"unvailable\",\r\n    \"operator\": \".eq\",\r\n    \"actualValue\": \"unvailable\",\r\n    \"tolerance\": \"0.05\",\r\n    \"violationAverage\": \"0.1\",\r\n    \"comment\": \"Availability below agreed level.\",\r\n    \"consequence\": \"http://ww.acme.com/contract/clause/42\",\r\n    \"attachment\": {\r\n      \"href\": \"https://foo.bar/screenshot.123\",\r\n      \"description\": \"availability statistics for August 2013\"\r\n    },\r\n    \"rule\": {\r\n      \"href\": \"http/www.zak.com/slaManagement/sla/123444/rules/availability\",\r\n      \"description\": \"availability\"\r\n    }\r\n  }\r\n}"
+			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/slaManagement/slaViolation/99999\",\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProvider\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAConsumer\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAAuditor\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLABusinessBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLATechnicalBroker\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"ThirdPartySLAManager\"\r\n    },\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"EndUser\"\r\n    }\r\n  ],\r\n  \"sla\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/sla/123444\",\r\n    \"description\": \"sla of premium video\"\r\n  },\r\n  \"violation\": {\r\n    \"unit\": \"string\",\r\n    \"referenceValue\": \"unvailable\",\r\n    \"operator\": \".eq\",\r\n    \"actualValue\": \"unvailable\",\r\n    \"tolerance\": \"0.05\",\r\n    \"violationAverage\": \"0.1\",\r\n    \"comment\": \"Availability below agreed level.\",\r\n    \"consequence\": \"http://ww.acme.com/contract/clause/42\",\r\n    \"attachment\": {\r\n      \"href\": \"https://foo.bar/screenshot.123\",\r\n      \"description\": \"availability statistics for August 2013\"\r\n    },\r\n    \"rule\": {\r\n      \"href\": \"http/www.zak.com/slaManagement/sla/123444/rules/availability\",\r\n      \"description\": \"availability\"\r\n    }\r\n  }\r\n}",
+			"owner": "41284",
+			"folder": "47852edd-20ae-b0ff-d2bb-e734417580cc"
 		},
 		{
 			"id": "8bcfa632-fded-2023-2910-0806bfb9f655",
@@ -398,7 +425,9 @@
 			"description": "delete all resources",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "d8f98830-26af-5748-1511-cac70c464910"
 		},
 		{
 			"id": "983877fa-f62b-54be-12a1-cda2dd93f308",
@@ -419,7 +448,9 @@
 			"description": "delete a resource with id",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "d8f98830-26af-5748-1511-cac70c464910"
 		},
 		{
 			"id": "98b52c00-d694-6658-6b2c-ec3550f62912",
@@ -439,7 +470,9 @@
 			"description": "List all",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "1a0f11ee-d472-2231-c6cd-383536830c4f"
 		},
 		{
 			"id": "a46558b8-d38e-a38a-7846-2a1fb048cf06",
@@ -459,7 +492,9 @@
 			"description": "delete all",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "1a0f11ee-d472-2231-c6cd-383536830c4f"
 		},
 		{
 			"id": "a6bb0bfe-2bbb-7233-7684-a3dbf4064df5",
@@ -482,7 +517,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/slaManagement/slaViolation/PATCH\",\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProviderPATCH\"\r\n    }\r\n  ],\r\n  \"sla\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/sla/123444\",\r\n    \"description\": \"sla of premium video PATCH\"\r\n  }\r\n  \r\n}"
+			"rawModeData": "{\r\n  \"href\": \"http/www.acme.com/slaManagement/slaViolation/PATCH\",\r\n  \"relatedParty\": [\r\n    {\r\n      \"href\": \"http://\",\r\n      \"role\": \"SLAProviderPATCH\"\r\n    }\r\n  ],\r\n  \"sla\": {\r\n    \"href\": \"http/www.acme.com/slaManagement/sla/123444\",\r\n    \"description\": \"sla of premium video PATCH\"\r\n  }\r\n  \r\n}",
+			"owner": "41284",
+			"folder": "47852edd-20ae-b0ff-d2bb-e734417580cc"
 		},
 		{
 			"id": "a7327340-99de-ff40-a226-41913c27ae0f",
@@ -502,7 +539,9 @@
 			"description": "find all resources",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "d8f98830-26af-5748-1511-cac70c464910"
 		},
 		{
 			"id": "aa222726-8ed6-8400-2bd3-44c1a05983e4",
@@ -522,7 +561,9 @@
 			"description": "select all hubs",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "a222e050-5b84-878f-1fb3-cd9f0b153f4a"
 		},
 		{
 			"id": "aac2b348-15e4-b961-2adb-2dabc6be0cb9",
@@ -542,7 +583,9 @@
 			"description": "select all slas",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "81a0b21f-3ae3-76ad-02f8-090f98832129"
 		},
 		{
 			"id": "ec9bb46a-0422-3130-f457-c3ad63adf61c",
@@ -562,7 +605,9 @@
 			"description": "select all slaViolations",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "47852edd-20ae-b0ff-d2bb-e734417580cc"
 		},
 		{
 			"id": "f1950660-4dbc-9a03-45cf-07607ed7b285",
@@ -584,7 +629,9 @@
 			"description": "select one sla with id",
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
-			"synced": false
+			"synced": false,
+			"owner": "41284",
+			"folder": "81a0b21f-3ae3-76ad-02f8-090f98832129"
 		},
 		{
 			"id": "f545460d-6a50-8bd8-027c-7bfa506b481c",
@@ -605,7 +652,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": "[\n]\n"
+			"rawModeData": "[\n]\n",
+			"owner": "41284",
+			"folder": "d8f98830-26af-5748-1511-cac70c464910"
 		},
 		{
 			"id": "f59f3a79-fb55-de82-a355-b43ff2692b0a",
@@ -628,7 +677,9 @@
 			"collectionId": "a402e650-a20a-6c01-608f-5d4c88b8efbb",
 			"responses": [],
 			"synced": false,
-			"rawModeData": ""
+			"rawModeData": "",
+			"owner": "41284",
+			"folder": "47852edd-20ae-b0ff-d2bb-e734417580cc"
 		}
 	]
 }

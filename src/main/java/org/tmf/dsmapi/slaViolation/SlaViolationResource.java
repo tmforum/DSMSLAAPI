@@ -171,8 +171,8 @@ public class SlaViolationResource {
             entity.setId(id);
             slaFacade.edit(entity);
 //            publisher.valueChangedNotification(entity, new Date());
-            // 201 OK + location
-            response = Response.status(Response.Status.CREATED).entity(entity).build();
+            // 200 OK + location
+            response = Response.status(Response.Status.OK).entity(entity).build();
 
         } else {
             // 404 not found
@@ -212,9 +212,8 @@ public class SlaViolationResource {
             //remove resource
             slaFacade.remove(id);
 
-            // 200 
-            Response response = Response.ok(entity).build();
-            return response;
+            // 204
+            return Response.status(Response.Status.NO_CONTENT).build();
     }
 
     @PATCH
@@ -226,8 +225,8 @@ public class SlaViolationResource {
         
         SlaViolation currentViolation = slaFacade.updateAttributs(id, partialViolation);
 
-        // 201 OK + location
-        response = Response.status(Response.Status.CREATED).entity(currentViolation).build();
+        // 200 OK + location
+        response = Response.status(Response.Status.OK).entity(currentViolation).build();
 
         return response;
     }

@@ -221,7 +221,7 @@ public class SlaResource {
     public Response patch(@PathParam("id") long id, Sla partialsla) throws BadUsageException, UnknownResourceException {
         Response response = null;
         
-        Sla currentSla = slaFacade.updateAttributs(id, partialsla);
+        Sla currentSla = slaFacade.patchAttributs(id, partialsla);
 
         // 200 OK + location
         response = Response.status(Response.Status.OK).entity(currentSla).build();

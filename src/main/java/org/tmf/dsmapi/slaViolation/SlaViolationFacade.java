@@ -1,6 +1,5 @@
 package org.tmf.dsmapi.slaViolation;
 
-import java.util.Date;
 import org.tmf.dsmapi.commons.facade.AbstractFacade;
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
@@ -12,7 +11,6 @@ import org.tmf.dsmapi.commons.exceptions.BadUsageException;
 import org.tmf.dsmapi.commons.exceptions.ExceptionType;
 import org.tmf.dsmapi.commons.exceptions.UnknownResourceException;
 import org.tmf.dsmapi.commons.utils.BeanUtils;
-import org.tmf.dsmapi.sla.model.Sla;
 import org.tmf.dsmapi.sla.model.SlaViolation;
 import org.tmf.dsmapi.slaViolation.event.SlaViolationEventPublisherLocal;
 
@@ -37,24 +35,18 @@ public class SlaViolationFacade extends AbstractFacade<SlaViolation> {
         return em;
     }
 
-    public void checkCreation(SlaViolation newSlaViolation) throws BadUsageException {
+    public void checkCreation(SlaViolation newSlaViolation) throws BadUsageException, UnknownResourceException {
 
         if (newSlaViolation.getId() != null) {
-            throw new BadUsageException(ExceptionType.BAD_USAGE_GENERIC, "While creating SlaViolation, id must be null");
+            if (this.find(newSlaViolation.getId()) != null) {
+                throw new BadUsageException(ExceptionType.BAD_USAGE_GENERIC,
+                        "Duplicate Exception, SlaViolation with same id :" + newSlaViolation.getId() + " alreay exists");
+            }
         }
 
     }
     
-//    @Override
-//    public void create(SlaViolation entity) throws BadUsageException {
-//        if (entity.getId() != null) {
-//            throw new BadUsageException(ExceptionType.BAD_USAGE_GENERIC, "While creating SlaViolation, id must be null");
-//        }
-//
-//        super.create(entity);
-//    }
-
-    public SlaViolation updateAttributs(long id, SlaViolation partialSlaViolation) throws UnknownResourceException, BadUsageException {
+    public SlaViolation patchAttributs(long id, SlaViolation partialSlaViolation) throws UnknownResourceException, BadUsageException {
         SlaViolation currentSlaViolation = this.find(id);
 
         if (currentSlaViolation == null) {

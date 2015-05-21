@@ -36,24 +36,24 @@ public class SlaFacade extends AbstractFacade<Sla> {
         return em;
     }
 
-    public void checkCreation(Sla newSla) throws BadUsageException {
+    public void checkCreation(Sla newSla) throws BadUsageException, UnknownResourceException {
 
         if (newSla.getId() != null) {
-            throw new BadUsageException(ExceptionType.BAD_USAGE_GENERIC, "While creating Sla, id must be null");
+            if (this.find(newSla.getId()) != null) {
+                throw new BadUsageException(ExceptionType.BAD_USAGE_GENERIC,
+                        "Duplicate Exception, Product with same id :" + newSla.getId() + " alreay exists");
+            }
         }
 
-        if (null == newSla.getName()) {
+        if (null == newSla.getName()
+                || newSla.getName().isEmpty()) {
             throw new BadUsageException(ExceptionType.BAD_USAGE_MANDATORY_FIELDS, "name is mandatory");
         }
     }
     
     
-//    @Override
-//    public void create(Sla entity) throws BadUsageException {
-//        super.create(entity);
-//    }
 
-    public Sla updateAttributs(long id, Sla partialSla) throws UnknownResourceException, BadUsageException {
+    public Sla patchAttributs(long id, Sla partialSla) throws UnknownResourceException, BadUsageException {
         Sla currentSla = this.find(id);
 
         if (currentSla == null) {

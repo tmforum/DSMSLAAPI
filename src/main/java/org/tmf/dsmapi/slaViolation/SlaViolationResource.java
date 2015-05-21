@@ -223,7 +223,7 @@ public class SlaViolationResource {
     public Response patch(@PathParam("id") long id, SlaViolation partialViolation) throws BadUsageException, UnknownResourceException {
         Response response = null;
         
-        SlaViolation currentViolation = slaFacade.updateAttributs(id, partialViolation);
+        SlaViolation currentViolation = slaFacade.patchAttributs(id, partialViolation);
 
         // 200 OK + location
         response = Response.status(Response.Status.OK).entity(currentViolation).build();

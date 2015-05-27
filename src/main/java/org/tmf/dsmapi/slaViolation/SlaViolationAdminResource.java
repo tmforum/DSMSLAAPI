@@ -1,5 +1,6 @@
 package org.tmf.dsmapi.slaViolation;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
@@ -20,7 +21,14 @@ import javax.ws.rs.core.UriInfo;
 import org.tmf.dsmapi.commons.exceptions.BadUsageException;
 import org.tmf.dsmapi.commons.exceptions.UnknownResourceException;
 import org.tmf.dsmapi.commons.jaxrs.Report;
+import org.tmf.dsmapi.sla.model.Attachment;
+import org.tmf.dsmapi.sla.model.RelatedParty;
+import org.tmf.dsmapi.sla.model.Rule;
+import org.tmf.dsmapi.sla.model.RuleRef;
+import org.tmf.dsmapi.sla.model.Sla;
+import org.tmf.dsmapi.sla.model.SlaRef;
 import org.tmf.dsmapi.sla.model.SlaViolation;
+import org.tmf.dsmapi.sla.model.Violation;
 import org.tmf.dsmapi.slaViolation.event.SlaViolationEvent;
 import org.tmf.dsmapi.slaViolation.event.SlaViolationEventFacade;
 import org.tmf.dsmapi.slaViolation.event.SlaViolationEventPublisherLocal;
@@ -232,5 +240,66 @@ public class SlaViolationAdminResource {
     @Produces({"application/json"})
     public Report count() {
         return new Report(slaFacade.count());
+    }
+
+    @GET
+    @Produces({"application/json"})
+    @Path("proto")
+    public SlaViolation proto() {
+        SlaViolation slaViolation = new SlaViolation();
+        slaViolation.setId(new Long(1));
+        slaViolation.setHref("http://localhost:8080/DSSlaManagement/api/slaManagement/v2/slaViolation/1");
+        
+        SlaRef slaRef = new SlaRef();
+        slaRef.setHref("http/www.acme.com/slaManagement/sla/123444");
+        slaRef.setDescription("sla of premium video");
+        slaViolation.setSla(slaRef);
+        
+        Violation violation = new Violation();
+        violation.setUnit("string");
+        violation.setReferenceValue("available");
+        violation.setOperator(".eq");
+        violation.setTolerance(new Float("0.05"));
+        violation.setViolationAverage(new Float("0.1"));
+        violation.setComment("Availability below agreed level.");
+        violation.setConsequence("http://ww.acme.com/contract/clause/42");
+        Attachment attachment = new Attachment();
+        attachment.setHref("https://foo.bar/screenshot.123");
+        attachment.setDescription("availability statistics for August 2013");
+        violation.setAttachment(attachment);
+        RuleRef rule = new RuleRef();
+        rule.setHref("http/www.zak.com/slaManagement/sla/123444/rules/availability");
+        rule.setDescription("availability");
+        violation.setRule(rule);
+        slaViolation.setViolation(violation);
+        
+        List<RelatedParty> l_rp = new ArrayList<RelatedParty>();
+        RelatedParty rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/42");
+        rp.setRole("SLAProvider");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/44");
+        rp.setRole("SLAConsumer");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/33");
+        rp.setRole("SLAAuditor");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/57");
+        rp.setRole("SLABusinessBroker");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/66");
+        rp.setRole("SLATechnicalBroker");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/48");
+        rp.setRole("ThirdPartySLAManager");
+        l_rp.add(rp);
+        slaViolation.setRelatedParty(l_rp);
+        
+        return slaViolation;
     }
 }

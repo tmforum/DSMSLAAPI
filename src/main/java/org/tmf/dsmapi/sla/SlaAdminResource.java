@@ -1,6 +1,8 @@
 package org.tmf.dsmapi.sla;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -20,10 +22,15 @@ import javax.ws.rs.core.UriInfo;
 import org.tmf.dsmapi.commons.exceptions.BadUsageException;
 import org.tmf.dsmapi.commons.exceptions.UnknownResourceException;
 import org.tmf.dsmapi.commons.jaxrs.Report;
+import org.tmf.dsmapi.commons.utils.TMFDate;
 import org.tmf.dsmapi.sla.model.Sla;
 import org.tmf.dsmapi.sla.event.SlaEvent;
 import org.tmf.dsmapi.sla.event.SlaEventFacade;
 import org.tmf.dsmapi.sla.event.SlaEventPublisherLocal;
+import org.tmf.dsmapi.sla.model.RelatedParty;
+import org.tmf.dsmapi.sla.model.Rule;
+import org.tmf.dsmapi.sla.model.Template;
+import org.tmf.dsmapi.sla.model.ValidFor;
 
 @Stateless
 @Path("admin/sla")
@@ -59,7 +66,7 @@ public class SlaAdminResource {
         }
 
         int previousRows = slaFacade.count();
-        int affectedRows=0;
+        int affectedRows = 0;
 
         // Try to persist entities
         try {
@@ -232,5 +239,80 @@ public class SlaAdminResource {
     @Produces({"application/json"})
     public Report count() {
         return new Report(slaFacade.count());
+    }
+
+    @GET
+    @Produces({"application/json"})
+    @Path("proto")
+    public Sla proto() {
+        Sla sla = new Sla();
+        sla.setId(new Long(1));
+        sla.setHref("http://localhost:8080/DSSlaManagement/api/slaManagement/v2/sla/1");
+        sla.setName("HighSpeedDataSLA");
+        sla.setDescription("SLA for high speed data.");
+        sla.setVersion("0.1");
+
+        GregorianCalendar gc = new GregorianCalendar();
+        gc.set(2015, 05, 15);
+        ValidFor validFor = new ValidFor();
+        validFor.setStartDateTime(TMFDate.parse("2013-04-19T18:42:23+02:00"));
+        validFor.setEndDateTime(TMFDate.parse("2013-04-21T11:43:54+02:00"));
+        sla.setValidFor(validFor);
+        
+        List<RelatedParty> l_rp = new ArrayList<RelatedParty>();
+        RelatedParty rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/42");
+        rp.setRole("SLAProvider");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/44");
+        rp.setRole("SLAConsumer");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/33");
+        rp.setRole("SLAAuditor");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/57");
+        rp.setRole("SLABusinessBroker");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/66");
+        rp.setRole("SLATechnicalBroker");
+        l_rp.add(rp);
+        rp  = new RelatedParty();
+        rp.setHref("http://serverlocation:port/partnerManagement/partner/48");
+        rp.setRole("ThirdPartySLAManager");
+        l_rp.add(rp);
+        sla.setRelatedParty(l_rp);
+
+        List<Rule> l_rules = new ArrayList<Rule>();
+        Rule rule  = new Rule();
+        rule.setId("availability");
+        rule.setMetric("http://IEEE99.5/Availability");
+        rule.setUnit("string");
+        rule.setReferenceValue("available");
+        rule.setOperator(".eq");
+        rule.setTolerance("0.05");
+        rule.setConsequence("http://ww.acme.com/contract/clause/42");
+        l_rules.add(rule);
+        rule  = new Rule();
+        rule.setId("downstream_GBR");
+        rule.setMetric("http://IEEE99.5/Data/bitrates/GBR/down");
+        rule.setUnit("kbps");
+        rule.setReferenceValue("1024");
+        rule.setOperator(".ge");
+        rule.setTolerance("0.20");
+        rule.setConsequence("http://ww.acme.com/contract/clause/45");
+        l_rules.add(rule);
+        sla.setRule(l_rules);
+        
+        Template template = new Template();
+        template.setHref("http/www.acme.com/slaManagement/slaTemplate/42");
+        template.setName("DataSLATemplate");
+        template.setDescription("basic template for Data SLA");
+        sla.setTemplate(template);
+        
+        return sla;
     }
 }
